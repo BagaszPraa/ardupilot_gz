@@ -61,19 +61,19 @@ def generate_launch_description():
     pkg_ardupilot_gazebo = get_package_share_directory("ardupilot_gazebo")
     pkg_project_bringup = get_package_share_directory("ardupilot_gz_bringup")
 
-    # Include component launch files.
-    sitl_process = ExecuteProcess(
-        cmd=[
-            "/home/bagas/ardupilot/Tools/autotest/sim_vehicle.py",
-            "-v", "ArduCopter",
-            "-f", "gazebo-iris",
-            "--model", "JSON",
-            "--console",
-            "--map"
-        ],
-        shell=False,
-        output="screen"
-    )
+    # # Include component launch files.
+    # sitl_process = ExecuteProcess(
+    #     cmd=[
+    #         "/home/bagas/ardupilot/Tools/autotest/sim_vehicle.py",
+    #         "-v", "ArduCopter",
+    #         "-f", "gazebo-iris",
+    #         "--model", "JSON",
+    #         "--console"
+    #         # "--map"
+    #     ],
+    #     shell=False,
+    #     output="screen"
+    # )
 
     # Robot description.
 
@@ -159,7 +159,7 @@ def generate_launch_description():
             DeclareLaunchArgument(
                 "use_gz_tf", default_value="true", description="Use Gazebo TF."
             ),
-            sitl_process,
+            # sitl_process,
             robot_state_publisher,
             bridge,
             RegisterEventHandler(
